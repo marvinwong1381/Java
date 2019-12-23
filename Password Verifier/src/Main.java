@@ -6,25 +6,17 @@
  */
 import java.util.*;
 import java.io.*;
-
-class verify 
+import java.util.Random;
+class verify
 {
-	public static void main(String args[]) 
-	{
-		verify obj = new verify();
-		obj.password();
-	}
-    void password()
-    {
+   void password(String pw)
+  {
     	int i,character=1,x,chara=0,Break=1,integer=0;
     	char ch;
-    	Scanner sc= new Scanner(System.in);
     	while(Break!=0)
     	{
     		String str;
-    		System.out.println("Enter Password=");
-    		str=sc.nextLine();
-    		System.out.println("Password is " + str + ".");
+    		str=pw;
     		if(str.length()>=8)
     		{
     			character=1;
@@ -53,6 +45,7 @@ class verify
     		if(character==0||integer<2)
     		{
     			System.out.println("\n*The entered password must contain at least 10 characters and at least 2 numbers only\n\n");
+    			break;
     		}
     		else
     		{
@@ -62,5 +55,37 @@ class verify
     			Break=0;
     		}
     	}
-    }
-}
+    }    
+  }
+class generator
+  {
+	  char[] generatePswd(int len)
+	  {
+		  System.out.println("Your Password:");
+		  String charsCaps="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		  String chars="abcdefghijklmnopqrstuvwxy";
+		  String nums="123456789";
+		  
+		  String passSymbols = charsCaps + chars +nums;
+		  Random rnd = new Random();
+		  char[] password = new char[len];
+		  int index = 0;
+		  for(int i= 0; i<len;i++) 
+		  {
+			  password[i]=passSymbols.charAt(rnd.nextInt(passSymbols.length()));
+		  }
+		  return password;
+	  }
+   }
+  
+public class Main
+ {
+  public static void main(String args[]) 
+	{
+	    generator pw1=new generator();
+	    String str = String.valueOf(pw1.generatePswd(10));
+	    verify obj= new verify();
+	    obj.password(str);
+	}
+ }
+

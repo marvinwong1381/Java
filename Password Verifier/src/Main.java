@@ -39,6 +39,7 @@ class verify
     		else
         	{
         		System.out.println("The entered password is too short");
+                        break;
         	}
     		if(character==0||integer<2)
     		{

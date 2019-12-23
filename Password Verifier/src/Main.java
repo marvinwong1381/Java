@@ -19,8 +19,6 @@ class verify
     		str=pw;
     		if(str.length()>=8)
     		{
-    			character=1;
-    			integer=0;
     			for(i=0;i<str.length();i++)
     			{
     				ch=str.charAt(i);

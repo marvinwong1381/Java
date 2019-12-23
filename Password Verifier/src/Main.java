@@ -11,7 +11,7 @@ class verify
 {
    void password(String pw)
   {
-    	int i,character=1,x,chara=0,Break=1,integer=0;
+    	int i,character=1,chara=0,Break=1,integer=0;
     	char ch;
     	while(Break!=0)
     	{
